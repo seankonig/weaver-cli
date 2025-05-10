@@ -1,11 +1,14 @@
 {
   "name": "weaver-cli",
   "version": "1.0.0",
-  "description": "ai first cli tool",
-  "main": "src/index.ts",
+  "description": "AI-first CLI tool for structured projects and task generation",
+  "main": "dist/index.js",
   "bin": {
     "weave": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "node dist/index.js",
     "build": "tsc",
@@ -17,10 +20,15 @@
   },
   "keywords": [
     "cli",
-    "ai"
+    "ai",
+    "gpt",
+    "project-management",
+    "developer-tools",
+    "openai",
+    "mcp"
   ],
-  "author": "sean konig",
-  "license": "ISC",
+  "author": "Sean Konig",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/seankonig/weaver-cli/issues"
   },
