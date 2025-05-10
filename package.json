@@ -1,6 +1,6 @@
 {
   "name": "weaver-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AI-first CLI tool for structured projects and task generation",
   "main": "dist/index.js",
   "bin": {
