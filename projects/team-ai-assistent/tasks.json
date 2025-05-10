@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Define and design the AI model",
+    "status": "in_progress",
+    "subtasks": [
+      {
+        "title": "Identify Key Features for the AI Model",
+        "status": "in_progress"
+      },
+      {
+        "title": "Draft Design of the AI Model",
+        "status": "not_started"
+      },
+      {
+        "title": "Develop Algorithms for the AI Model",
+        "status": "not_started"
+      },
+      {
+        "title": "Create a Prototype of the AI Model",
+        "status": "not_started"
+      },
+      {
+        "title": "Test the Prototype and Gather Feedback",
+        "status": "not_started"
+      },
+      {
+        "title": "Finalize the AI Model Design",
+        "status": "not_started"
+      }
+    ]
+  },
+  {
+    "title": "Set up the Supabase database to store employee context",
+    "status": "not_started"
+  },
+  {
+    "title": "Develop the AI agent to interpret and respond to user inputs",
+    "status": "not_started"
+  },
+  {
+    "title": "Implement the NextJS frontend for user interaction",
+    "status": "not_started"
+  },
+  {
+    "title": "Integrate the AI assistant with the frontend",
+    "status": "not_started"
+  },
+  {
+    "title": "Develop functionality for managing team members",
+    "status": "not_started"
+  },
+  {
+    "title": "Develop functionality for recording and managing one-on-one meeting notes",
+    "status": "not_started"
+  },
+  {
+    "title": "Develop functionality for creating next steps and goals",
+    "status": "not_started"
+  },
+  {
+    "title": "Ensure security measures are in place to protect sensitive data",
+    "status": "not_started"
+  },
+  {
+    "title": "Test the system for functionality and security",
+    "status": "not_started"
+  }
+]

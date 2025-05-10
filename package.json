@@ -1,0 +1,44 @@
+{
+  "name": "weaver-cli",
+  "version": "1.0.0",
+  "description": "ai first cli tool",
+  "main": "src/index.ts",
+  "bin": {
+    "weave": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "node dist/index.js",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/seankonig/weaver-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "ai"
+  ],
+  "author": "sean konig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seankonig/weaver-cli/issues"
+  },
+  "homepage": "https://github.com/seankonig/weaver-cli#readme",
+  "dependencies": {
+    "@types/boxen": "^2.1.0",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "commander": "^13.1.0",
+    "dotenv": "^16.5.0",
+    "openai": "^3.2.1",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "@types/prompts": "^2.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

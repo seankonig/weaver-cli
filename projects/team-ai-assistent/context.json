@@ -1,0 +1,21 @@
+{
+  "name": "team-ai-assistent",
+  "description": "building a ai assistent to help manage your team.",
+  "goals": [
+    "i want a tool that can help me manage team members, one on one meeting notes, creating next steps and goals"
+  ],
+  "tools": [
+    "supabase",
+    "nextjs",
+    "chadcn"
+  ],
+  "constraints": [
+    "should be secure and build context on employees so responses are targeted and random. context can be fed to ai agent and probably stored in a database"
+  ],
+  "users": [],
+  "agents": [],
+  "context": {
+    "current_task": "",
+    "history": []
+  }
+}
