@@ -5,10 +5,10 @@ import ora from "ora";
 import { Task } from "../types/task";
 import { ensureApiKey } from "../lib/config";
 import { Configuration, OpenAIApi } from "openai";
+import { getOpenAI } from "../lib/openai";
 
 export async function generateTasks(projectName: string) {
-  const apiKey = ensureApiKey();
-  const openai = new OpenAIApi(new Configuration({ apiKey }));
+  const openai = getOpenAI();
 
   const projectPath = path.resolve("projects", projectName);
   const contextPath = path.join(projectPath, "context.json");
@@ -48,6 +48,10 @@ export async function generateTasks(projectName: string) {
     const tasks: Task[] = JSON.parse(response || "[]");
     fs.writeFileSync(tasksPath, JSON.stringify(tasks, null, 2));
     spinner.succeed("✅ Tasks generated and saved to tasks.json!");
+    console.log("");
+    console.log("Run `weave list` to see the generated tasks.");
+    console.log("You can also run `weave breakdown <taskId>` to generate subtasks for a specific task.");
+    console.log("");
   } catch (err: any) {
     spinner.fail("❌ Failed to generate tasks.");
     console.error(err.message);

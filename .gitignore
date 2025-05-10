@@ -24,3 +24,6 @@ yarn-error.log*
 
 # Local Weave state
 .mcp/current-project.txt
+
+# Weave CLI
+.weave/

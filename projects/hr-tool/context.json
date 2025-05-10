@@ -1,0 +1,21 @@
+{
+  "name": "hr-tool",
+  "description": "managing employee training and goals",
+  "goals": [
+    "i want to manage employee training and growth with the help of an ai tool"
+  ],
+  "tools": [
+    "nextjs",
+    "supabase",
+    "chadcn"
+  ],
+  "constraints": [
+    "must use typescript"
+  ],
+  "users": [],
+  "agents": [],
+  "context": {
+    "current_task": "",
+    "history": []
+  }
+}

@@ -1,10 +1,8 @@
-import { Configuration, OpenAIApi } from 'openai';
-import { getOpenAIKey } from './config';
+import { Configuration, OpenAIApi } from "openai";
+import { ensureApiKey } from "./config";
 
-const apiKey = getOpenAIKey();
-if (!apiKey) {
-  throw new Error('❌ OpenAI API key not found. Run `weave config` first.');
+export function getOpenAI(): OpenAIApi {
+  const apiKey = ensureApiKey(); // Will exit with error if not set
+  const config = new Configuration({ apiKey });
+  return new OpenAIApi(config);
 }
-
-const configuration = new Configuration({ apiKey });
-export const openai = new OpenAIApi(configuration);

@@ -4,6 +4,7 @@ export interface Task {
   title: string;
   status: TaskStatus;
   description?: string;
+  aiHelp?: string;
   subtasks?: Task[];
 }
 

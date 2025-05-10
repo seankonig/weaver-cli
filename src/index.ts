@@ -3,26 +3,32 @@
 import { Command } from "commander";
 import chalk from "chalk";
 import dotenv from "dotenv";
+import fs from "fs";
 import { createProject } from "./project";
 import { useProject } from "./commands/use";
 import { listProjects } from "./commands/projects";
 import { listTasks } from "./commands/list";
-import { generateTasks } from "./commands/generate-tasks";
-import fs from "fs";
-import { showStatus } from "./commands/status";
-import { breakdownTask } from "./commands/breakdown";
 import { getProject } from "./helpers";
+import { showStatus } from "./commands/status";
 import { showProgress } from "./commands/progress";
 import { setTaskStatus } from "./commands/set-status";
 import { configureWeave } from "./commands/configure";
 import { exportProject } from "./commands/export";
+
 dotenv.config();
 
 const program = new Command();
 
 program.name("weave").description(chalk.cyan("🧵 Weave — AI-First Project CLI")).version("0.1.0");
 
-// Future: dynamically load command modules
+program
+  .command("init")
+  .description("Initialize your workspace with .mcp and projects directory")
+  .action(() => {
+    const { initializeWorkspace } = require("./commands/init");
+    initializeWorkspace();
+  });
+
 program
   .command("config")
   .description("Set your OpenAI API key")
@@ -74,18 +80,19 @@ program
 program
   .command("generate-tasks")
   .description("Generate a list of tasks from project context")
-  .action(() => {
+  .action(async () => {
     const currentProject = getProject();
-
-    generateTasks(currentProject);
+    const { generateTasks } = await import("./commands/generate-tasks");
+    await generateTasks(currentProject);
   });
 
 program
   .command("breakdown <taskId>")
   .description("Generate subtasks for a top-level task")
-  .action((taskId: string) => {
+  .action(async (taskId: string) => {
     const currentProject = getProject();
-    breakdownTask(currentProject, parseInt(taskId, 10));
+    const { breakdownTask } = await import("./commands/breakdown");
+    await breakdownTask(currentProject, parseInt(taskId, 10));
   });
 
 program
@@ -101,7 +108,7 @@ program
   .description("Update the status of a task or subtask (e.g. 2 or 2.1)")
   .action((ref: string) => {
     const currentProject = getProject();
-    setTaskStatus(currentProject, ref); // ✅ one ref only
+    setTaskStatus(currentProject, ref);
   });
 
 program
@@ -109,13 +116,20 @@ program
   .description("Export project as markdown or JSON")
   .action((format?: string) => {
     const currentProject = fs.readFileSync(".mcp/current-project.txt", "utf-8").trim();
-
     if (format && !["md", "json"].includes(format)) {
       console.log(chalk.red('❌ Invalid format. Use "md" or "json".'));
       return;
     }
-
     exportProject(currentProject, format as "md" | "json" | undefined);
+  });
+
+program
+  .command("ai-help <id>")
+  .description("Get AI suggestions or code help for a task or subtask")
+  .action(async (id: string) => {
+    const currentProject = fs.readFileSync(".mcp/current-project.txt", "utf-8").trim();
+    const { aiHelp } = await import("./commands/ai-help");
+    await aiHelp(currentProject, id);
   });
 
 program.parse(process.argv);

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Design and implement database schema for employee and training data",
+    "status": "not_started"
+  },
+  {
+    "title": "Develop API endpoints for CRUD operations on employee and training data",
+    "status": "not_started"
+  },
+  {
+    "title": "Set up Nextjs project with TypeScript",
+    "status": "not_started"
+  },
+  {
+    "title": "Integrate Supabase for backend operations",
+    "status": "not_started"
+  },
+  {
+    "title": "Design and implement user interface for managing employee training and goals",
+    "status": "not_started"
+  },
+  {
+    "title": "Implement AI algorithms for predicting employee growth",
+    "status": "not_started"
+  },
+  {
+    "title": "Integrate Chadcn for AI operations",
+    "status": "not_started"
+  },
+  {
+    "title": "Test all components and integrations",
+    "status": "not_started"
+  },
+  {
+    "title": "Deploy the hr-tool for initial testing",
+    "status": "not_started"
+  },
+  {
+    "title": "Collect feedback and make necessary adjustments",
+    "status": "not_started"
+  }
+]

@@ -2,16 +2,15 @@ import fs from "fs";
 import path from "path";
 import chalk from "chalk";
 import ora from "ora";
-import { openai } from "../lib/openai";
 import { readJson } from "../helpers";
 import { Task } from "../types/task";
 import { ContextMeta, ProjectContext } from "../types/context";
 import { ensureApiKey } from "../lib/config";
 import { Configuration, OpenAIApi } from "openai";
+import { getOpenAI } from "../lib/openai";
 
 export async function breakdownTask(projectName: string, taskId: number) {
-  const apiKey = ensureApiKey();
-  const openai = new OpenAIApi(new Configuration({ apiKey }));
+  const openai = getOpenAI();
   const contextPath = path.resolve("projects", projectName, "context.json");
   const tasksPath = path.resolve("projects", projectName, "tasks.json");
 
